@@ -45,6 +45,8 @@ Prior to analysis, we checked the data for null values: none existed. However, s
 
 Our data contains only two quantitative variables, of which only one appeared to be skewed: Days Between. This likely due to the observed overwhelming number of same-day scheduled appointments. Of the typically used transformation methods, we found the log transformation the most practical method for effectively transforming the data to a normal distribution.  
 
+![](Images/Picture1.png)
+![](Images/Picture1.1.png)
 
 *Figure 1*
 
