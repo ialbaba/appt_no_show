@@ -58,11 +58,15 @@ Data Exploration and Statistical Evaluation
 
 Our dataset included 88208 patients who showed up to their appointment and 22314 no show patients. This indicated that about 20% of patients do not show up to their appointments, which is around the same rate that people in the U.S do not show up to their appointments [3]. Figure 2 (below) shows the data in detail:
 
+![](Images/Picture2.png)
+
 *Figure 2*
 
 Figure 2 displays the number of no-shows marked by the binary value ‘1’ plotted alongside the number of patients that did show up indicated by the binary values ‘0’. 
 
 We individually tested variables for independence with our dependent variable of ‘No-Show’ using a chi-square test for all categorical variables. We chose to enter variables with a P value less than 0.2 into our model. Figure 3 (below) shows the results of the Chi-Square test. 
+
+![](Images/Picture3.png)
 
 *Figure 3*
 
@@ -71,12 +75,16 @@ Consequently, the column ‘Alcoholism’ was not entered into our model.
 
 For the remaining of our variables, we used two feature selection methods. The first is outlined below in Figure 4. 
 
+![](Images/Picture4.png)
+
 *Figure 4*
  
 
 We performed a Univariate Feature Selection to make sure all remaining features had a strong relationship with the outcome we were trying to predict (No-Shows). The scores for each variable in the feature selection can be shown in figure 4. We found all the features to be significant to our model. 
 
 After making sure our variables all had a strong relationship to the outcome, we used Recursive Feature Elimination to see if any of them were too weak of predictors to be a good feature. All of our features passed, which is shown in Figure 5 the recursive elimination so we moved forward with this set as our predictors. 
+
+![](Images/Picture5.png)
 
 *Figure 5*
 
@@ -98,15 +106,17 @@ Model Results
 
 After fitting the four models with the testing data, validating on the training data set, and running it through our the 10-fold cross-validated method, we obtained the following scores: 
 
+![](Images/Picture6.png)
+
 *Figure 6*
 
-Classifier	ROC / AUC Score	Cross-Validated Score	Accuracy Score
-Logistical Regression	0.714726025	0.79614321	0.795298
- K-Nearest-Neighbor	0.815631007	0.788431628	0.791325887
-Naïve Bayes	0.685698092	0.758669402	0.760340235
-Random Forest	0.763599592	0.797106008	0.797121092
-
 As a quick overview, we’ve included Figure 6. This table shows the ROC / AUC Score, Cross-Validated Score, and Accuracy Score each of the 4 models we trained with this data.
+
+
+![](Images/Picture7.png)
+
+*Figure 7*
+
 As shown in Figure 7, no single model takes the lead in total by a large margin, but KNN seems to be the most well-rounded model we fitted the data to. It’s ROC / AUC is certainly the highest at nearly 81.6%.
 
 **Additional Data Analysis**
@@ -115,10 +125,14 @@ Our initial hypothesis was the SMS notifications would be an important factor in
 
 We controlled for this by isolating the data frame to only those who had lead times between two and five days. What we initially hypothesis was confirmed. Those who had received an SMS notification and waited more than 1 day in between, were, in fact, more likely to show up to an appointment than those who had waited more than 1 day and not received the SMS notification. The results of these findings are found below (Figure 8). 
 
+![](Images/Picture8.png)
+
 *Figure 8*
  
 
 On average, there was a 2% difference in the show-up rate between those who received an SMS and those who did not. We also found that as the lead time increased the effectiveness of SMS_received increased. Figure 9 (below) displays the 10 to 22 days bucket statistics. 
+
+![](Images/Picture9.png)
 
 *Figure 9*
  
